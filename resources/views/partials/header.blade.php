@@ -21,3 +21,6 @@
         </div>
     </nav>
 </header>
+<div id="hero">
+    <img src=" {{ asset('resources/img/jumbotron.jpg') }} " alt="">
+</div>
