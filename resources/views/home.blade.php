@@ -16,26 +16,33 @@
 </head>
 
 <body>
-    <header class="bg-primary">
+    <header>
         <!-- dc power visa additional dc sites -->
-        <div class="d-flex justify-content-end align-items-center me-5">
-            <div class="text-uppercase text-white px-4">dc power visa</div>
-            <div class="text-uppercase text-white px-4">additional dc sites</div>
+        <div class="bg-primary">
+            <div class="container d-flex justify-content-end align-items-center">
+                <div class="text-uppercase text-white px-4">dc power visa</div>
+                <div class="text-uppercase text-white px-4">additional dc sites</div>
+            </div>
         </div>
         <!-- navbar -->
-        <nav>
-            <div class="box-logo">
-                <img src="{{ asset('resources/img/dc-logo.png') }}" alt="dc-comics">
+        <nav class="py-2">
+            <div class="container d-flex justify-content-center align-items-center">
+                <div class="box-logo">
+                    <img src="{{ asset('resources/img/dc-logo.png') }}" alt="dc-comics">
+                </div>
+
+                <ul class="d-flex">
+                    @foreach ($data as $key => $value)
+                        <li>{{ $value }}</li>
+                    @endforeach
+                </ul>
             </div>
+
+
+
         </nav>
     </header>
-    <main class="bg-light">
-        <div class=" ">
-            <div class="text-uppercase text-white">dc power visa</div>
-            <div class="text-uppercase text-white">additional dc sites</div>
 
-        </div>
-    </main>
 
 </body>
 

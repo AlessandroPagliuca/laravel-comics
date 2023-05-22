@@ -21,5 +21,18 @@ Route::get('resources/img/{filename}', function ($filename) {
 })->name('resource.img')->where('filename', '.*');
 
 Route::get('/', function () {
-    return view('home');
+    $data = [
+        'character' => 'characters',
+        'comics' => 'comics',
+        'movies' => 'movies',
+        'tv' => 'tv',
+        'games' => 'games',
+        'collectibles' => 'collectibles',
+        'videos' => 'videos',
+        'fans' => 'fans',
+        'news' => 'news',
+        'shop' => 'shop',
+
+    ];
+    return view('home')->with('data', $data);
 })->name('home');
