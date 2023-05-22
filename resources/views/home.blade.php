@@ -1,18 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>prova</h1>
     <div class="bg-dark">
         <div class="container d-flex justify-content-start">
+            <!--Products card-->
             <div class="row">
                 @foreach ($products['products'] as $product)
                     <div class="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center">
-                        <div class="card m-2" style="width: 14rem; height: 14rem;">
-                            <img class="card-img-top" src=" {{ $product['thumb'] }}" alt="{{ $product['series'] }}">
-                            <div class="card-body">
-                                <h5 class="card-title"> {{ $product['series'] }} </h5>
+                        <a href="{{ route('products.comicBooks', ['id' => $loop->index]) }}">
+                            <div class="card m-2" style="width: 14rem; height: 14rem;">
+                                <img class="card-img-top" src="{{ $product['thumb'] }}" alt="{{ $product['series'] }}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $product['series'] }}</h5>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 @endforeach
             </div>
