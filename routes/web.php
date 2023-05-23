@@ -96,7 +96,7 @@ Route::get('/', function () {
     return view('home', compact('data', 'products', 'footerLinks'));
 })->name('home');
 
-Route::get('/products.comicBooks/{id}', function ($id) {
+Route::get('/products/{id}', function ($id) {
     $data = [
         'character',
         'comics',
@@ -108,15 +108,12 @@ Route::get('/products.comicBooks/{id}', function ($id) {
         'fans',
         'news',
         'shop',
-
     ];
 
+    $comicsConfig = config('comics');
     $products = [
-        'products' => config('comics')
-
+        'products' => $comicsConfig[$data[$id]],
     ];
-    $product = $products[$id] ?? null;
-    //dd(config('comics'));
 
     $footerLinks = [
         'dc_comics' => [
@@ -129,7 +126,7 @@ Route::get('/products.comicBooks/{id}', function ($id) {
                 'games',
                 'videos',
                 'news',
-            ]
+            ],
         ],
 
         'dc' => [
@@ -146,8 +143,7 @@ Route::get('/products.comicBooks/{id}', function ($id) {
                 'ratings',
                 'shop help',
                 'contact us',
-
-            ]
+            ],
         ],
 
         'sites' => [
@@ -158,7 +154,7 @@ Route::get('/products.comicBooks/{id}', function ($id) {
                 'dc kids',
                 'dc universe',
                 'dc power visa',
-            ]
+            ],
         ],
 
         'shop' => [
@@ -166,9 +162,13 @@ Route::get('/products.comicBooks/{id}', function ($id) {
             'links' => [
                 'shop dc',
                 'shop dc collectibles',
-            ]
-        ]
-
+            ],
+        ],
     ];
-    return view('products.comicBooks', compact('data', 'products', 'footerLinks'));
-})->name('products.comicBooks');
+
+    if ($id >= 0 && $id < count($data)) {
+        return view('products.show', compact('data', 'products', 'footerLinks'));
+    } else {
+        abort(404);
+    }
+})->name('products.show');

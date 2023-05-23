@@ -7,7 +7,7 @@
             <div class="row">
                 @foreach ($products['products'] as $product)
                     <div class="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center">
-                        <a href="{{ route('products.comicBooks', ['id' => $loop->index]) }}">
+                        <a href="{{ route('products.show', ['id' => $loop->index]) }}">
                             <div class="card m-2" style="width: 14rem; height: 14rem;">
                                 <img class="card-img-top" src="{{ $product['thumb'] }}" alt="{{ $product['series'] }}">
                                 <div class="card-body">

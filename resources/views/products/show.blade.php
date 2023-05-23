@@ -15,8 +15,6 @@
                 <p class="card-text"><strong>Series:</strong> {{ $product['series'] }}</p>
                 <p class="card-text"><strong>Sale Date:</strong> {{ $product['sale_date'] }}</p>
                 <p class="card-text"><strong>Type:</strong> {{ $product['type'] }}</p>
-                <p class="card-text"><strong>Artists:</strong> {{ implode(', ', $product['artists']) }}</p>
-                <p class="card-text"><strong>Writers:</strong> {{ implode(', ', $product['writers']) }}</p>
             </div>
         </div>
 
